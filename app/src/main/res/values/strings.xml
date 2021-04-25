@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Human Benchmark</string>
+
+    <!-- reaction_time_fragment -->
+    <string name="reaction_header">Reaction Time Test</string>
+    <string name="reaction_game_description">When the red color turns green, tap as quickly as you can.<br/><strong>Tap anywhere to start.</strong></string>
+
+    <!-- numbers_fragment -->
+    <string name="number_header">Number Memory</string>
+    <string name="numbers_game_description">The average person can remember 7 numbers at once. Can you do more?</string>
+
+    <!-- chimp_fragment -->
+    <string name="chimp_header">Are You Smarter Than A Chimpanzee?</string>
+    <string name="chimp_game_description">Tap the squares in order according to their numbers.<br/>The test will get progressively harder.</string>
+
+    <string name="start">Start</string>
+
+</resources>

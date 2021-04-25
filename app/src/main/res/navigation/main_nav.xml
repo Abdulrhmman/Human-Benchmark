@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.abdelrahmman.humanbenchmark.ui.MainFragment"
+        android:label="MainFragment" >
+
+        <action
+            android:id="@+id/action_mainFragment_to_reactionTimeFragment"
+            app:destination="@id/reactionTimeFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+
+        <action
+            android:id="@+id/action_mainFragment_to_aimTrainerFragment"
+            app:destination="@id/aimTrainerFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+
+        <action
+            android:id="@+id/action_mainFragment_to_chimpTestFragment"
+            app:destination="@id/chimpTestFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+
+        <action
+            android:id="@+id/action_mainFragment_to_numberMemoryFragment"
+            app:destination="@id/numberMemoryFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+
+        <action
+            android:id="@+id/action_mainFragment_to_verbalMemoryFragment"
+            app:destination="@id/verbalMemoryFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+
+        <action
+            android:id="@+id/action_mainFragment_to_visualMemoryFragment"
+            app:destination="@id/visualMemoryFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/reactionTimeFragment"
+        android:name="com.abdelrahmman.humanbenchmark.ui.ReactionTimeFragment"
+        android:label="ReactionTimeFragment" >
+
+        <action
+            android:id="@+id/action_reactionTimeFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/aimTrainerFragment"
+        android:name="com.abdelrahmman.humanbenchmark.ui.AimTrainerFragment"
+        android:label="AimTrainerFragment" >
+
+        <action
+            android:id="@+id/action_aimTrainerFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/chimpTestFragment"
+        android:name="com.abdelrahmman.humanbenchmark.ui.ChimpTestFragment"
+        android:label="ChimpTestFragment" >
+
+        <action
+            android:id="@+id/action_chimpTestFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/numberMemoryFragment"
+        android:name="com.abdelrahmman.humanbenchmark.ui.NumberMemoryFragment"
+        android:label="NumberMemoryFragment" >
+
+        <action
+            android:id="@+id/action_numberMemoryFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/verbalMemoryFragment"
+        android:name="com.abdelrahmman.humanbenchmark.ui.VerbalMemoryFragment"
+        android:label="VerbalMemoryFragment" >
+
+        <action
+            android:id="@+id/action_verbalMemoryFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/visualMemoryFragment"
+        android:name="com.abdelrahmman.humanbenchmark.ui.VisualMemoryFragment"
+        android:label="VisualMemoryFragment" >
+
+        <action
+            android:id="@+id/action_visualMemoryFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+
+    </fragment>
+
+</navigation>
