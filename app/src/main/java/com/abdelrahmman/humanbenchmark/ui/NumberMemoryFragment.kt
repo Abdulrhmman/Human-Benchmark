@@ -1,6 +1,7 @@
 package com.abdelrahmman.humanbenchmark.ui
 
 import android.content.Context
+import android.content.pm.ActivityInfo
 import android.graphics.Color.parseColor
 import android.os.Bundle
 import android.os.Handler
@@ -43,6 +44,8 @@ class NumberMemoryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        activity?.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
 
         textNumber = view.findViewById(R.id.text_number)
         btnStart = view.findViewById(R.id.btn_start)

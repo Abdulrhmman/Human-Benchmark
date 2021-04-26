@@ -1,5 +1,6 @@
 package com.abdelrahmman.humanbenchmark.ui
 
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.*
 import android.widget.*
@@ -40,6 +41,8 @@ class ChimpTestFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        activity?.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
 
         gridLayout = view.findViewById(R.id.chimp_grid)
         btnStart = view.findViewById(R.id.btn_start)
@@ -162,7 +165,7 @@ class ChimpTestFragment : Fragment() {
 
             if (numbers.text.toString().toInt() < level){
                 for (i in 0 until 20){
-                    gridLayout.get(i).background = this.resources.getDrawable(R.drawable.rounded_block)
+                    gridLayout.get(i).background = this.resources.getDrawable(R.drawable.rounded_white_block)
                 }
 
                 if (pressCounter < level - 1) {
@@ -197,9 +200,9 @@ class ChimpTestFragment : Fragment() {
             gridLayout: GridLayout,
             position: Int?
     ){
-        for (y in 1 until level){
+//        for (y in 1 until level){
             gridLayout.get(position!!).animate().alpha(1f).duration = 0
-        }
+//        }
     }
 
     private fun validateAnswer(

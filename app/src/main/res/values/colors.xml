@@ -14,4 +14,5 @@
     <color name="red">#D90000</color>
     <color name="light_red">#FE4F4F</color>
     <color name="green">#00D902</color>
+    <color name="dark_block">#001A50</color>
 </resources>

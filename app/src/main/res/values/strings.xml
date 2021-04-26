@@ -13,6 +13,20 @@
     <string name="chimp_header">Are You Smarter Than A Chimpanzee?</string>
     <string name="chimp_game_description">Tap the squares in order according to their numbers.<br/>The test will get progressively harder.</string>
 
+    <!-- verbal_memory_fragment -->
+    <string name="verbal_header">Verbal Memory Test</string>
+    <string name="verbal_game_description">You will be shown words, one at a time. if you have seen a word during the test, click SEEN, if it is a new word, click NEW</string>
+
+    <!-- aim_trainer_fragment -->
+    <string name="aim_trainer_header">Aim Trainer</string>
+    <string name="aim_trainer_game_description">Hit 30 targets as quickly as you can.<br/>Click the target above to begin.</string>
+
+    <!-- visual_memory_fragment -->
+    <string name="visual_memory_header">Visual Memory Test</string>
+    <string name="visual_memory_game_description">Memorize the squares.</string>
+
     <string name="start">Start</string>
+    <string name="try_again">Try Again</string>
+    <string name="save_score">Save Score</string>
 
 </resources>

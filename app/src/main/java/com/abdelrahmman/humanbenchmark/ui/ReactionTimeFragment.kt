@@ -1,5 +1,6 @@
 package com.abdelrahmman.humanbenchmark.ui
 
+import android.content.pm.ActivityInfo
 import android.os.*
 import android.view.*
 import android.widget.LinearLayout
@@ -38,6 +39,8 @@ class ReactionTimeFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        activity?.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
 
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
