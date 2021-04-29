@@ -7,7 +7,7 @@
     android:background="@color/colorPrimary">
 
     <LinearLayout
-        android:id="@+id/visual_start_game"
+        android:id="@+id/linear_start_game"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -58,7 +58,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/visual_memory_texts"
+        android:id="@+id/linear_texts"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -78,7 +78,6 @@
             app:layout_constraintTop_toTopOf="parent"
             android:gravity="center_horizontal"
             android:layout_marginTop="15dp"
-            android:text="Level: 3"
             android:textColor="@color/white"
             android:textSize="28sp"
             android:fontFamily="@font/cairo_regular"/>
@@ -87,7 +86,6 @@
             android:id="@+id/text_lives"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lives: 1"
             android:textSize="28sp"
             android:textColor="@color/white"
             android:fontFamily="@font/cairo_regular" />
@@ -95,7 +93,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/gameplay_visual_memory"
+        android:id="@+id/linear_gameplay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -114,7 +112,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/visual_memory_game_end"
+        android:id="@+id/linear_result"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -129,7 +127,6 @@
             android:id="@+id/text_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Level: 12"
             android:fontFamily="@font/cairo_regular"
             android:textColor="@color/white"
             android:textSize="32sp"/>
@@ -154,8 +151,7 @@
             android:textSize="18sp"
             android:textColor="@color/colorPrimary"
             android:textAllCaps="false"
-            android:fontFamily="@font/cairo_regular"
-            android:visibility="gone"/>
+            android:fontFamily="@font/cairo_regular"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_try_again"

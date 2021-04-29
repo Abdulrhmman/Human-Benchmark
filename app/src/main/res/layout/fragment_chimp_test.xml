@@ -7,7 +7,7 @@
     android:background="@color/colorPrimary">
 
     <LinearLayout
-        android:id="@+id/chimp_start_game"
+        android:id="@+id/linear_start_game"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -57,7 +57,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/gameplay_chimp"
+        android:id="@+id/linear_gameplay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -77,7 +77,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/chimp_linear_result"
+        android:id="@+id/linear_result"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -101,7 +101,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/cairo_regular"
-            android:text="3"
             android:textColor="@color/white"
             android:textSize="28sp"/>
 
@@ -119,7 +118,6 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/cairo_regular"
             android:textColor="@color/white"
-            android:text="0 of 3"
             android:textSize="28sp"/>
 
         <androidx.appcompat.widget.AppCompatButton
@@ -128,7 +126,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_button"
             android:layout_marginTop="20dp"
-            android:text="Continue"
+            android:text="@string/cont"
             android:textSize="18sp"
             android:textColor="@color/colorPrimary"
             android:textAllCaps="false"
@@ -137,7 +135,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/chimp_linear_game_end"
+        android:id="@+id/linear_game_end"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -161,12 +159,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/cairo_regular"
-            android:text="4"
             android:textColor="@color/white"
             android:textSize="28sp"/>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_save_score_chimp"
+            android:id="@+id/btn_save_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_button"
@@ -177,8 +174,7 @@
             android:textSize="18sp"
             android:textColor="@color/colorPrimary"
             android:textAllCaps="false"
-            android:fontFamily="@font/cairo_regular"
-            android:visibility="gone"/>
+            android:fontFamily="@font/cairo_regular"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_try_again"

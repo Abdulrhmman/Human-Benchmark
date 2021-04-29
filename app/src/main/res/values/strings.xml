@@ -2,31 +2,45 @@
     <string name="app_name">Human Benchmark</string>
 
     <!-- reaction_time_fragment -->
+    <string name="reaction_time_fragment">Reaction Time</string>
     <string name="reaction_header">Reaction Time Test</string>
     <string name="reaction_game_description">When the red color turns green, tap as quickly as you can.<br/><strong>Tap anywhere to start.</strong></string>
 
     <!-- numbers_fragment -->
+    <string name="number_memory_fragment">Number Memory</string>
     <string name="number_header">Number Memory</string>
     <string name="numbers_game_description">The average person can remember 7 numbers at once. Can you do more?</string>
 
     <!-- chimp_fragment -->
+    <string name="chimp_test_fragment">Chimp Test</string>
     <string name="chimp_header">Are You Smarter Than A Chimpanzee?</string>
     <string name="chimp_game_description">Tap the squares in order according to their numbers.<br/>The test will get progressively harder.</string>
 
     <!-- verbal_memory_fragment -->
+    <string name="verbal_memory_fragment">Verbal Memory</string>
     <string name="verbal_header">Verbal Memory Test</string>
     <string name="verbal_game_description">You will be shown words, one at a time. if you have seen a word during the test, click SEEN, if it is a new word, click NEW</string>
 
     <!-- aim_trainer_fragment -->
+    <string name="aim_trainer_fragment">Aim Trainer</string>
     <string name="aim_trainer_header">Aim Trainer</string>
     <string name="aim_trainer_game_description">Hit 30 targets as quickly as you can.<br/>Click the target above to begin.</string>
 
     <!-- visual_memory_fragment -->
+    <string name="visual_memory_fragment">Visual Memory</string>
     <string name="visual_memory_header">Visual Memory Test</string>
     <string name="visual_memory_game_description">Memorize the squares.</string>
 
+    <!-- buttons -->
     <string name="start">Start</string>
     <string name="try_again">Try Again</string>
     <string name="save_score">Save Score</string>
-
+    <string name="cont">Continue</string>
+    <string name="submit">Submit</string>
+    <string name="seen">SEEN</string>
+    <string name="btn_new">NEW</string>
+    
+    <!-- Others -->
+    <string name="score_saved">Score Saved</string>
+    
 </resources>

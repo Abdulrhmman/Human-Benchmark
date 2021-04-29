@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
-        android:id="@+id/verbal_start_game"
+        android:id="@+id/linear_start_game"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -57,7 +57,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/gameplay_verbal"
+        android:id="@+id/linear_gameplay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -73,7 +73,6 @@
             android:id="@+id/text_lives"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lives | 3"
             android:fontFamily="@font/cairo_regular"
             android:textColor="@color/white"
             android:textSize="24sp"/>
@@ -82,7 +81,6 @@
             android:id="@+id/text_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Score | 5"
             android:fontFamily="@font/cairo_regular"
             android:textColor="@color/white"
             android:textSize="24sp"
@@ -92,7 +90,6 @@
             android:id="@+id/text_word"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Crisp"
             android:fontFamily="@font/cairo_bold"
             android:textColor="@color/white"
             android:textSize="32sp"/>
@@ -110,7 +107,7 @@
                 android:background="@drawable/rounded_button"
                 android:layout_marginTop="20dp"
                 android:textSize="18sp"
-                android:text="SEEN"
+                android:text="@string/seen"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 android:textColor="@color/colorPrimary"
@@ -127,7 +124,7 @@
                 android:textSize="18sp"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
-                android:text="NEW"
+                android:text="@string/btn_new"
                 android:textColor="@color/colorPrimary"
                 android:textAllCaps="false"
                 android:fontFamily="@font/cairo_regular"
@@ -138,7 +135,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/gameplay_result_verbal"
+        android:id="@+id/linear_result"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -170,8 +167,7 @@
             android:paddingEnd="10dp"
             android:textColor="@color/colorPrimary"
             android:textAllCaps="false"
-            android:fontFamily="@font/cairo_regular"
-            android:visibility="gone"/>
+            android:fontFamily="@font/cairo_regular"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_try_again"

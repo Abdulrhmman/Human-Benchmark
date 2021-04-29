@@ -5,12 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.abdelrahmman.humanbenchmark.R
 
-class MainFragment : Fragment(), View.OnClickListener {
+class MainFragment : BaseMainFragment(), View.OnClickListener {
 
     lateinit var navController: NavController
 
@@ -24,6 +23,8 @@ class MainFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
+
+//        viewModel.deleteAll()
 
         view.findViewById<LinearLayout>(R.id.reaction_time).setOnClickListener(this)
         view.findViewById<LinearLayout>(R.id.aim_trainer).setOnClickListener(this)
@@ -43,7 +44,7 @@ class MainFragment : Fragment(), View.OnClickListener {
             R.id.verbal_memory -> navController.navigate(R.id.action_mainFragment_to_verbalMemoryFragment)
             R.id.chimp_test -> navController.navigate(R.id.action_mainFragment_to_chimpTestFragment)
             R.id.visual_memory -> navController.navigate(R.id.action_mainFragment_to_visualMemoryFragment)
-//            R.id.show_scores -> // TODO
+            R.id.show_scores -> navController.navigate(R.id.action_mainFragment_to_showScoresFragment)
         }
     }
 

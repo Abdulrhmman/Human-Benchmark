@@ -5,14 +5,16 @@ import android.os.*
 import android.view.*
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
+import android.widget.Toast.LENGTH_SHORT
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
 import com.abdelrahmman.humanbenchmark.R
+import com.abdelrahmman.humanbenchmark.data.Scores
+import com.abdelrahmman.humanbenchmark.util.TimestampUtils
 
 
-class ReactionTimeFragment : Fragment(), View.OnClickListener {
-
-    // TODO: Save Score
+class ReactionTimeFragment : BaseMainFragment(), View.OnClickListener {
 
     var millisStart: Long = 0
     var millisFinish: Long = 0
@@ -20,6 +22,13 @@ class ReactionTimeFragment : Fragment(), View.OnClickListener {
     var reactionMillisAll: Long = 0
     var reactionMillisAverage: Long = 0
     var tries: Int = 0
+
+    private lateinit var linearStartGame : LinearLayout
+    private lateinit var linearGameplayRed : LinearLayout
+    private lateinit var linearGameplayGreen : LinearLayout
+    private lateinit var linearGameplayTooSoon : LinearLayout
+    private lateinit var linearGameplayKeepGoing : LinearLayout
+    private lateinit var linearResult : LinearLayout
 
     lateinit var textTriesTooSoon: TextView
     lateinit var timerText: TextView
@@ -42,6 +51,13 @@ class ReactionTimeFragment : Fragment(), View.OnClickListener {
 
         activity?.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
 
+        linearStartGame = view.findViewById(R.id.linear_start_game)
+        linearGameplayRed = view.findViewById(R.id.linear_gameplay_red)
+        linearGameplayGreen = view.findViewById(R.id.linear_gameplay_green)
+        linearGameplayTooSoon = view.findViewById(R.id.linear_gameplay_too_soon)
+        linearGameplayKeepGoing = view.findViewById(R.id.linear_gameplay_keep_going)
+        linearResult = view.findViewById(R.id.linear_result)
+
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             activity?.window?.insetsController?.hide(WindowInsets.Type.statusBars())
@@ -61,30 +77,28 @@ class ReactionTimeFragment : Fragment(), View.OnClickListener {
         btnSaveScore = view.findViewById(R.id.btn_save_score)
         btnTryAgain = view.findViewById(R.id.btn_try_again)
 
-        view.findViewById<LinearLayout>(R.id.start_game).setOnClickListener(this)
-        view.findViewById<LinearLayout>(R.id.gameplay_red).setOnClickListener(this)
-        view.findViewById<LinearLayout>(R.id.gameplay_green).setOnClickListener(this)
-        view.findViewById<LinearLayout>(R.id.gameplay_too_soon).setOnClickListener(this)
-        view.findViewById<LinearLayout>(R.id.gameplay_keep_going).setOnClickListener(this)
-        view.findViewById<LinearLayout>(R.id.gameplay_result_reaction).setOnClickListener(this)
-
-        btnSaveScore.setOnClickListener {
-            // TODO
-        }
+        view.findViewById<LinearLayout>(R.id.linear_start_game).setOnClickListener(this)
+        view.findViewById<LinearLayout>(R.id.linear_gameplay_red).setOnClickListener(this)
+        view.findViewById<LinearLayout>(R.id.linear_gameplay_green).setOnClickListener(this)
+        view.findViewById<LinearLayout>(R.id.linear_gameplay_too_soon).setOnClickListener(this)
+        view.findViewById<LinearLayout>(R.id.linear_gameplay_keep_going).setOnClickListener(this)
+        view.findViewById<LinearLayout>(R.id.linear_result).setOnClickListener(this)
 
         btnTryAgain.setOnClickListener {
             handleTryAgain()
+            btnSaveScore.isEnabled = true
+        }
+
+        btnSaveScore.setOnClickListener {
+            handleSaveScore()
+            btnSaveScore.isEnabled = false
         }
 
     }
 
     private fun startGame(){
-
-        val linearStartGame = view?.findViewById<LinearLayout>(R.id.start_game)
-        linearStartGame?.visibility = View.GONE
-
-        val linearRed = view?.findViewById<LinearLayout>(R.id.gameplay_red)
-        linearRed?.visibility = View.VISIBLE
+        linearStartGame.visibility = View.GONE
+        linearGameplayRed.visibility = View.VISIBLE
 
         handleGameplay()
 
@@ -97,11 +111,8 @@ class ReactionTimeFragment : Fragment(), View.OnClickListener {
             val randomTimer : Long = (3000 until 6000).random().toLong()
 
             Handler(Looper.getMainLooper()).postDelayed({
-                val linearRed = view?.findViewById<LinearLayout>(R.id.gameplay_red)
-                linearRed?.visibility = View.GONE
-
-                val linearGreen = view?.findViewById<LinearLayout>(R.id.gameplay_green)
-                linearGreen?.visibility = View.VISIBLE
+                linearGameplayRed.visibility = View.GONE
+                linearGameplayGreen.visibility = View.VISIBLE
                 tries++
 
                 // start milli counter
@@ -110,12 +121,8 @@ class ReactionTimeFragment : Fragment(), View.OnClickListener {
             }, randomTimer)
 
         } else {
-
-            val linearRed = view?.findViewById<LinearLayout>(R.id.gameplay_red)
-            linearRed?.visibility = View.GONE
-
-            val linearEndResult = view?.findViewById<LinearLayout>(R.id.gameplay_result_reaction)
-            linearEndResult?.visibility = View.VISIBLE
+            linearGameplayRed.visibility = View.GONE
+            linearResult.visibility = View.VISIBLE
 
             textMillisTotal.setText("Total: $reactionMillisAll ms")
 
@@ -127,15 +134,9 @@ class ReactionTimeFragment : Fragment(), View.OnClickListener {
     }
 
     private fun tooSoon(){
-        val linearRed = view?.findViewById<LinearLayout>(R.id.gameplay_red)
-        linearRed?.visibility = View.GONE
-
-        val linearGreen = view?.findViewById<LinearLayout>(R.id.gameplay_green)
-        linearGreen?.visibility = View.GONE
-
-        val linearTooSoon = view?.findViewById<LinearLayout>(R.id.gameplay_too_soon)
-        linearTooSoon?.visibility = View.VISIBLE
-
+        linearGameplayRed.visibility = View.GONE
+        linearGameplayGreen.visibility = View.GONE
+        linearGameplayTooSoon.visibility = View.VISIBLE
 
         textTriesTooSoon.setText("Tries: $tries of 5")
 
@@ -153,38 +154,28 @@ class ReactionTimeFragment : Fragment(), View.OnClickListener {
                 handleTooSoon()
                 tries--
             }
+
         }.start()
     }
 
     private fun handleKeepGoing(){
-        val linearKeepGoing = view?.findViewById<LinearLayout>(R.id.gameplay_keep_going)
-        linearKeepGoing?.visibility = View.GONE
-
-        val linearRed = view?.findViewById<LinearLayout>(R.id.gameplay_red)
-        linearRed?.visibility = View.VISIBLE
+        linearGameplayKeepGoing.visibility = View.GONE
+        linearGameplayRed.visibility = View.VISIBLE
 
         handleGameplay()
     }
 
     private fun handleTooSoon(){
-        val linearTooSoon = view?.findViewById<LinearLayout>(R.id.gameplay_too_soon)
-        linearTooSoon?.visibility = View.GONE
-
-        val linearGreen = view?.findViewById<LinearLayout>(R.id.gameplay_green)
-        linearGreen?.visibility = View.GONE
-
-        val linearRed = view?.findViewById<LinearLayout>(R.id.gameplay_red)
-        linearRed?.visibility = View.VISIBLE
+        linearGameplayTooSoon.visibility = View.GONE
+        linearGameplayGreen.visibility = View.GONE
+        linearGameplayRed.visibility = View.VISIBLE
 
         handleGameplay()
     }
 
     private fun handleUserInteraction(){
-        val linearGreen = view?.findViewById<LinearLayout>(R.id.gameplay_green)
-        linearGreen?.visibility = View.GONE
-
-        val linearKeepGoing = view?.findViewById<LinearLayout>(R.id.gameplay_keep_going)
-        linearKeepGoing?.visibility = View.VISIBLE
+        linearGameplayGreen.visibility = View.GONE
+        linearGameplayKeepGoing.visibility = View.VISIBLE
 
         textTriesKeepGoing.setText("Tries: " + tries.toString() + " of 5")
 
@@ -200,8 +191,7 @@ class ReactionTimeFragment : Fragment(), View.OnClickListener {
         tries = 0
         reactionMillisAll = 0
 
-        val linearEndResult = view?.findViewById<LinearLayout>(R.id.gameplay_result_reaction)
-        linearEndResult?.visibility = View.GONE
+        linearResult.visibility = View.GONE
 
         Handler(Looper.getMainLooper()).postDelayed({
             startGame()
@@ -209,12 +199,28 @@ class ReactionTimeFragment : Fragment(), View.OnClickListener {
 
     }
 
+    private fun handleSaveScore(){
+
+        val timestamp: String? = TimestampUtils.getCurrentTimestamp()
+
+        val score = Scores(
+            getString(R.string.reaction_time_fragment),
+            reactionMillisAverage.toInt(),
+            timestamp!!
+        )
+
+        viewModel.insert(score)
+
+        Toast.makeText(context, getString(R.string.score_saved), LENGTH_SHORT).show()
+
+    }
+
     override fun onClick(v: View?) {
         when(v!!.id) {
-            R.id.start_game -> startGame()
-            R.id.gameplay_red -> tooSoon()
-            R.id.gameplay_keep_going -> handleKeepGoing()
-            R.id.gameplay_green -> handleUserInteraction()
+            R.id.linear_start_game -> startGame()
+            R.id.linear_gameplay_red -> tooSoon()
+            R.id.linear_gameplay_keep_going -> handleKeepGoing()
+            R.id.linear_gameplay_green -> handleUserInteraction()
             R.id.btn_save_score -> handleGameplay()
         }
     }

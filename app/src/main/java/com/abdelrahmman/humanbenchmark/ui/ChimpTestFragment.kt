@@ -5,16 +5,20 @@ import android.os.Bundle
 import android.view.*
 import android.widget.*
 import android.widget.Toast.LENGTH_SHORT
+import androidx.activity.viewModels
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import com.abdelrahmman.humanbenchmark.R
+import com.abdelrahmman.humanbenchmark.data.Scores
+import com.abdelrahmman.humanbenchmark.util.TimestampUtils
+import com.abdelrahmman.humanbenchmark.viewmodels.ScoresViewModel
 import java.lang.NullPointerException
 
-class ChimpTestFragment : Fragment() {
-
-    // TODO: Save Score
+class ChimpTestFragment : BaseMainFragment() {
 
     var level: Int = 5
     var selected = mutableListOf<Int>()
@@ -24,13 +28,20 @@ class ChimpTestFragment : Fragment() {
     var map = mutableMapOf<Int, Int>()
     var strikes: Int = 0
 
-    lateinit var gridLayout: GridLayout
-    lateinit var btnStart : AppCompatButton
-    lateinit var textCurrentLevel : TextView
-    lateinit var textStrikes : TextView
-    lateinit var textScore : TextView
-    lateinit var btnContinue : AppCompatButton
-    lateinit var btnTryAgain : AppCompatButton
+
+    private lateinit var linearStartGame : LinearLayout
+    private lateinit var linearGameplay : LinearLayout
+    private lateinit var linearResult : LinearLayout
+    private lateinit var linearEndResult : LinearLayout
+
+    private lateinit var gridLayout: GridLayout
+    private lateinit var btnStart : AppCompatButton
+    private lateinit var textCurrentLevel : TextView
+    private lateinit var textStrikes : TextView
+    private lateinit var textScore : TextView
+    private lateinit var btnContinue : AppCompatButton
+    private lateinit var btnTryAgain : AppCompatButton
+    private lateinit var btnSaveScore : AppCompatButton
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -44,6 +55,11 @@ class ChimpTestFragment : Fragment() {
 
         activity?.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
 
+        linearStartGame = view.findViewById(R.id.linear_start_game)
+        linearGameplay = view.findViewById(R.id.linear_gameplay)
+        linearResult = view.findViewById(R.id.linear_result)
+        linearEndResult = view.findViewById(R.id.linear_game_end)
+
         gridLayout = view.findViewById(R.id.chimp_grid)
         btnStart = view.findViewById(R.id.btn_start)
         textCurrentLevel = view.findViewById(R.id.text_current_level)
@@ -51,35 +67,29 @@ class ChimpTestFragment : Fragment() {
         textScore = view.findViewById(R.id.text_score)
         btnContinue = view.findViewById(R.id.btn_continue)
         btnTryAgain = view.findViewById(R.id.btn_try_again)
+        btnSaveScore = view.findViewById(R.id.btn_save_score)
 
         btnStart.setOnClickListener {
 
-            val linearStart = view.findViewById<LinearLayout>(R.id.chimp_start_game)
-            linearStart?.visibility = View.GONE
-
-            val linearGameplay = view.findViewById<LinearLayout>(R.id.gameplay_chimp)
-            linearGameplay?.visibility = View.VISIBLE
+            linearStartGame.visibility = View.GONE
+            linearGameplay.visibility = View.VISIBLE
 
             handleGameplay()
         }
 
         btnContinue.setOnClickListener {
-            val linearScore = view.findViewById<LinearLayout>(R.id.chimp_linear_result)
-            linearScore?.visibility = View.GONE
-
-            val linearGameplay = view.findViewById<LinearLayout>(R.id.gameplay_chimp)
-            linearGameplay?.visibility = View.VISIBLE
+            linearResult.visibility = View.GONE
+            linearGameplay.visibility = View.VISIBLE
 
             handleGameplay()
         }
 
         btnTryAgain.setOnClickListener {
-            val linearEndResult = view.findViewById<LinearLayout>(R.id.chimp_linear_game_end)
-            linearEndResult?.visibility = View.GONE
-
-            val linearGameplay = view.findViewById<LinearLayout>(R.id.gameplay_chimp)
-            linearGameplay?.visibility = View.VISIBLE
+            linearEndResult.visibility = View.GONE
+            linearGameplay.visibility = View.VISIBLE
             handleGameplay()
+
+            btnSaveScore.isEnabled = true
         }
 
     }
@@ -200,20 +210,15 @@ class ChimpTestFragment : Fragment() {
             gridLayout: GridLayout,
             position: Int?
     ){
-//        for (y in 1 until level){
-            gridLayout.get(position!!).animate().alpha(1f).duration = 0
-//        }
+        gridLayout.get(position!!).animate().alpha(1f).duration = 0
     }
 
     private fun validateAnswer(
             currLevel: Int,
             userAnswer: String
     ){
-        val linearGameplay = view?.findViewById<LinearLayout>(R.id.gameplay_chimp)
-        linearGameplay?.visibility = View.GONE
-
-        val linearGameResult = view?.findViewById<LinearLayout>(R.id.chimp_linear_result)
-        linearGameResult?.visibility = View.VISIBLE
+        linearGameplay.visibility = View.GONE
+        linearResult.visibility = View.VISIBLE
 
         for (i in 1 until currLevel){
             rightAnswer += i.toString()
@@ -227,12 +232,10 @@ class ChimpTestFragment : Fragment() {
             strikes++
         }
 
-        // game ended (user lost)
+        // game ended (player lost)
         if (strikes == 3){
-            linearGameResult?.visibility = View.GONE
-
-            val linearEndResult = view?.findViewById<LinearLayout>(R.id.chimp_linear_game_end)
-            linearEndResult?.visibility = View.VISIBLE
+            linearResult.visibility = View.GONE
+            linearEndResult.visibility = View.VISIBLE
 
             textScore.setText((currLevel-1).toString())
 
@@ -242,10 +245,8 @@ class ChimpTestFragment : Fragment() {
 
         // game ended
         if (level == 22){
-            linearGameResult?.visibility = View.GONE
-
-            val linearEndResult = view?.findViewById<LinearLayout>(R.id.chimp_linear_game_end)
-            linearEndResult?.visibility = View.VISIBLE
+            linearResult.visibility = View.GONE
+            linearEndResult.visibility = View.VISIBLE
 
             textScore.setText((currLevel-1).toString())
 
@@ -257,6 +258,27 @@ class ChimpTestFragment : Fragment() {
         textStrikes.setText("$strikes of 3")
 
         rightAnswer = ""
+
+        btnSaveScore.setOnClickListener {
+            handleSaveScore(currLevel-1)
+            btnSaveScore.isEnabled = false
+        }
+
+    }
+
+    private fun handleSaveScore(level: Int){
+
+        val timestamp: String? = TimestampUtils.getCurrentTimestamp()
+
+        val score = Scores(
+            getString(R.string.chimp_test_fragment),
+            level,
+            timestamp!!
+        )
+
+        viewModel.insert(score)
+
+        Toast.makeText(context, getString(R.string.score_saved), LENGTH_SHORT).show()
 
     }
 

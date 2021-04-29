@@ -7,7 +7,7 @@
     android:background="@color/colorPrimary">
 
     <LinearLayout
-        android:id="@+id/aim_start_game"
+        android:id="@+id/linear_start_game"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -47,7 +47,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/aim_remaining"
+        android:id="@+id/linear_aim_remaining"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -74,7 +74,6 @@
             android:id="@+id/text_remaining"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="20"
             android:textSize="28sp"
             android:textColor="@color/white"
             android:fontFamily="@font/cairo_regular" />
@@ -82,7 +81,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/aim_gameplay"
+        android:id="@+id/linear_gameplay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -102,7 +101,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/aim_linear_game_end"
+        android:id="@+id/linear_game_end"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -126,7 +125,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/cairo_regular"
-            android:text="12.845 s"
             android:textColor="@color/white"
             android:textSize="24sp"/>
 
@@ -143,12 +141,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/cairo_regular"
-            android:text="422 ms"
             android:textColor="@color/white"
             android:textSize="24sp"/>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_save_score_aim"
+            android:id="@+id/btn_save_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_button"
@@ -159,8 +156,7 @@
             android:textSize="18sp"
             android:textColor="@color/colorPrimary"
             android:textAllCaps="false"
-            android:fontFamily="@font/cairo_regular"
-            android:visibility="gone"/>
+            android:fontFamily="@font/cairo_regular"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_try_again"

@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
-        android:id="@+id/number_start_game"
+        android:id="@+id/linear_start_game"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -57,7 +57,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/gameplay_number"
+        android:id="@+id/linear_gameplay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -73,7 +73,6 @@
             android:id="@+id/text_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="4"
             android:fontFamily="@font/cairo_bold"
             android:textColor="@color/white"
             android:textSize="40sp"/>
@@ -92,7 +91,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/gameplay_answer"
+        android:id="@+id/linear_answer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -133,14 +132,14 @@
             android:layout_marginTop="20dp"
             android:textSize="18sp"
             android:textColor="@color/colorPrimary"
-            android:text="Submit"
+            android:text="@string/submit"
             android:textAllCaps="false"
             android:fontFamily="@font/cairo_regular" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/gameplay_result_numbers"
+        android:id="@+id/linear_result"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -184,20 +183,27 @@
             android:textColor="@color/white"
             android:textSize="28sp"/>
 
+        <TextView
+            android:id="@+id/text_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cairo_regular"
+            android:textColor="@color/white"
+            android:textSize="28sp"/>
+
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_save_score_numbers"
+            android:id="@+id/btn_save_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_button"
             android:layout_marginTop="20dp"
-            android:text="Save Score"
+            android:text="@string/save_score"
             android:textSize="18sp"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
             android:textColor="@color/colorPrimary"
             android:textAllCaps="false"
-            android:fontFamily="@font/cairo_regular"
-            android:visibility="gone"/>
+            android:fontFamily="@font/cairo_regular"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_continue"

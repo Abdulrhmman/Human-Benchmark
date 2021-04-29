@@ -17,11 +17,11 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import com.abdelrahmman.humanbenchmark.R
+import com.abdelrahmman.humanbenchmark.data.Scores
+import com.abdelrahmman.humanbenchmark.util.TimestampUtils
 import java.lang.NullPointerException
 
-class VisualMemoryFragment : Fragment() {
-
-    // TODO: Save Score
+class VisualMemoryFragment : BaseMainFragment() {
 
     private var squares: Int = 3
     private var blocks: Int = 0
@@ -30,7 +30,12 @@ class VisualMemoryFragment : Fragment() {
     private var wrongAttempts: Int = 0
     private var level: Int = 1
     private var lives: Int = 3
-    var selected = mutableListOf<Int>()
+    private var selected = mutableListOf<Int>()
+
+    private lateinit var linearStartGame : LinearLayout
+    private lateinit var linearGameplay : LinearLayout
+    private lateinit var linearTexts : LinearLayout
+    private lateinit var linearEndResult : LinearLayout
 
     private lateinit var gridLayout: GridLayout
     private lateinit var btnStart : AppCompatButton
@@ -39,10 +44,6 @@ class VisualMemoryFragment : Fragment() {
     private lateinit var textScore: TextView
     private lateinit var btnSaveScore : AppCompatButton
     private lateinit var btnTryAgain : AppCompatButton
-    private lateinit var linearStartGame : LinearLayout
-    private lateinit var linearGameplay : LinearLayout
-    private lateinit var linearTexts : LinearLayout
-    private lateinit var linearEndResult : LinearLayout
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -56,6 +57,11 @@ class VisualMemoryFragment : Fragment() {
 
         activity?.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
 
+        linearStartGame = view.findViewById(R.id.linear_start_game)
+        linearGameplay = view.findViewById(R.id.linear_gameplay)
+        linearTexts = view.findViewById(R.id.linear_texts)
+        linearEndResult = view.findViewById(R.id.linear_result)
+
         gridLayout = view.findViewById(R.id.visual_memory_grid)
         btnStart = view.findViewById(R.id.btn_start)
         textCurrentLevel = view.findViewById(R.id.text_level)
@@ -63,16 +69,14 @@ class VisualMemoryFragment : Fragment() {
         textScore = view.findViewById(R.id.text_score)
         btnSaveScore = view.findViewById(R.id.btn_save_score)
         btnTryAgain = view.findViewById(R.id.btn_try_again)
-        linearStartGame = view.findViewById(R.id.visual_start_game)
-        linearGameplay = view.findViewById(R.id.gameplay_visual_memory)
-        linearTexts = view.findViewById(R.id.visual_memory_texts)
-        linearEndResult = view.findViewById(R.id.visual_memory_game_end)
-
 
         btnStart.setOnClickListener {
-
             handleGameplay()
+        }
 
+        btnSaveScore.setOnClickListener {
+            handleSaveScore()
+            btnSaveScore.isEnabled = false
         }
 
     }
@@ -189,7 +193,14 @@ class VisualMemoryFragment : Fragment() {
                     )
                 }
 
-            } catch (e: NullPointerException){
+            } catch (e: Exception) {
+                print(e.message)
+            }
+            catch (i: java.lang.IllegalStateException){
+
+                println(i.message)
+            }
+            catch (e: NullPointerException){
                 println(e.message)
             }
 
@@ -232,19 +243,17 @@ class VisualMemoryFragment : Fragment() {
         )
 
     }
-
-
+    
     private fun showSquares(
             gridLayout: GridLayout,
-            position: Int?
+            position: Int
     ){
-
         Handler(Looper.getMainLooper()).postDelayed({
-            gridLayout.get(position!!).background = this.resources.getDrawable(R.drawable.rounded_white_block)
+            gridLayout.get(position).background = this.resources.getDrawable(R.drawable.rounded_white_block)
         }, 500)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            gridLayout.get(position!!).background = this.resources.getDrawable(R.drawable.rounded_dark_block)
+            gridLayout.get(position).background = this.resources.getDrawable(R.drawable.rounded_dark_block)
         }, 1500)
 
     }
@@ -319,7 +328,24 @@ class VisualMemoryFragment : Fragment() {
             linearEndResult.visibility = View.GONE
             level = 1
             handleGameplay()
+            btnSaveScore.isEnabled = true
         }
+
+    }
+
+    private fun handleSaveScore(){
+
+        val timestamp: String? = TimestampUtils.getCurrentTimestamp()
+
+        val score = Scores(
+            getString(R.string.visual_memory_fragment),
+            level,
+            timestamp!!
+        )
+
+        viewModel.insert(score)
+
+        Toast.makeText(context, getString(R.string.score_saved), LENGTH_SHORT).show()
 
     }
 
@@ -333,5 +359,4 @@ class VisualMemoryFragment : Fragment() {
         return randomNumber
 
     }
-
 }

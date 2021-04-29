@@ -9,25 +9,30 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
+import android.widget.Toast.LENGTH_SHORT
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
 import com.abdelrahmman.humanbenchmark.R
+import com.abdelrahmman.humanbenchmark.data.Scores
 import com.abdelrahmman.humanbenchmark.util.Constants
+import com.abdelrahmman.humanbenchmark.util.TimestampUtils
 
-class VerbalMemoryFragment : Fragment() {
+class VerbalMemoryFragment : BaseMainFragment() {
 
     // TODO: Save Score
     var lives = 3
     var score = 0
     var seen_words = mutableListOf<String>()
 
+    private lateinit var linearStartGame : LinearLayout
+    private lateinit var linearGameplay : LinearLayout
+    private lateinit var linearEndResult : LinearLayout
+
     private lateinit var btnStart : AppCompatButton
     private lateinit var btnSaveScore : AppCompatButton
     private lateinit var btnSeen : AppCompatButton
     private lateinit var btnNew : AppCompatButton
-    private lateinit var linearStartGame : LinearLayout
-    private lateinit var linearGameplay : LinearLayout
-    private lateinit var linearEndResult : LinearLayout
     private lateinit var textLives : TextView
     private lateinit var textScore : TextView
     private lateinit var textWord : TextView
@@ -46,9 +51,9 @@ class VerbalMemoryFragment : Fragment() {
 
         activity?.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
 
-        linearStartGame = view.findViewById(R.id.verbal_start_game)
-        linearGameplay = view.findViewById(R.id.gameplay_verbal)
-        linearEndResult = view.findViewById(R.id.gameplay_result_verbal)
+        linearStartGame = view.findViewById(R.id.linear_start_game)
+        linearGameplay = view.findViewById(R.id.linear_gameplay)
+        linearEndResult = view.findViewById(R.id.linear_result)
 
         textLives = view.findViewById(R.id.text_lives)
         textScore = view.findViewById(R.id.text_score)
@@ -65,14 +70,15 @@ class VerbalMemoryFragment : Fragment() {
             handleGameplay()
         }
 
-        btnSaveScore.setOnClickListener {
-            // TODO
-        }
-
         btnTryAgain.setOnClickListener {
             handleTryAgain()
+            btnSaveScore.isEnabled = true
         }
 
+        btnSaveScore.setOnClickListener {
+            handleSaveScore()
+            btnSaveScore.isEnabled = false
+        }
     }
 
     private fun handleGameplay(){
@@ -147,6 +153,22 @@ class VerbalMemoryFragment : Fragment() {
         linearGameplay.visibility = View.VISIBLE
 
         handleGameplay()
+    }
+
+    private fun handleSaveScore(){
+
+        val timestamp: String? = TimestampUtils.getCurrentTimestamp()
+
+        val score = Scores(
+            getString(R.string.verbal_memory_fragment),
+            score,
+            timestamp!!
+        )
+
+        viewModel.insert(score)
+
+        Toast.makeText(context, getString(R.string.score_saved), LENGTH_SHORT).show()
+
     }
 
     private fun generateRandomWord10(): String {

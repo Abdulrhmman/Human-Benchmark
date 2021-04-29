@@ -11,19 +11,25 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
+import android.widget.Toast.LENGTH_SHORT
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.abdelrahmman.humanbenchmark.R
+import com.abdelrahmman.humanbenchmark.data.Scores
 import com.abdelrahmman.humanbenchmark.util.ProgressBarAnimation
+import com.abdelrahmman.humanbenchmark.util.TimestampUtils
 
-class NumberMemoryFragment : Fragment() {
-
-    // TODO: Save Score
+class NumberMemoryFragment : BaseMainFragment() {
 
     var number: String = ""
     var digits: Int = 1
     var thinkingTime: Long = 3000
+
+    private lateinit var linearStartGame: LinearLayout
+    private lateinit var linearGamplay: LinearLayout
+    private lateinit var linearAnswer: LinearLayout
+    private lateinit var linearResult: LinearLayout
 
     lateinit var textNumber: TextView
     lateinit var btnStart: AppCompatButton
@@ -32,6 +38,7 @@ class NumberMemoryFragment : Fragment() {
     lateinit var answer: EditText
     lateinit var textRightNumber: TextView
     lateinit var textUserAnswer: TextView
+    lateinit var textLevel: TextView
     lateinit var btnContinue: AppCompatButton
     lateinit var btnSaveScore: AppCompatButton
 
@@ -47,14 +54,20 @@ class NumberMemoryFragment : Fragment() {
 
         activity?.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
 
+        linearStartGame = view.findViewById(R.id.linear_start_game)
+        linearGamplay = view.findViewById(R.id.linear_gameplay)
+        linearAnswer = view.findViewById(R.id.linear_answer)
+        linearResult = view.findViewById(R.id.linear_result)
+
         textNumber = view.findViewById(R.id.text_number)
         btnStart = view.findViewById(R.id.btn_start)
         btnSubmit = view.findViewById(R.id.btn_submit)
         answer = view.findViewById(R.id.user_answer)
         textRightNumber = view.findViewById(R.id.text_right_number)
         textUserAnswer = view.findViewById(R.id.text_user_answer)
+        textLevel = view.findViewById(R.id.text_level)
         btnContinue = view.findViewById(R.id.btn_continue)
-        btnSaveScore = view.findViewById(R.id.btn_save_score_numbers)
+        btnSaveScore = view.findViewById(R.id.btn_save_score)
         progressbar = view.findViewById(R.id.progressbar)
 
         btnStart.setOnClickListener {
@@ -66,29 +79,25 @@ class NumberMemoryFragment : Fragment() {
         }
 
         btnContinue.setOnClickListener {
-
-            val linearGreen = view.findViewById<LinearLayout>(R.id.gameplay_result_numbers)
-            linearGreen?.visibility = View.GONE
-
-            val linearNumber = view.findViewById<LinearLayout>(R.id.gameplay_number)
-            linearNumber?.visibility = View.VISIBLE
+            linearResult.visibility = View.GONE
+            linearGamplay.visibility = View.VISIBLE
 
             handleGameplay()
+
+            btnSaveScore.isEnabled = true
         }
 
         btnSaveScore.setOnClickListener {
-            // TODO
+            handleSaveScore()
+
+            btnSaveScore.isEnabled = false
         }
 
     }
 
     private fun handleGameplay(){
-
-        val linearRed = view?.findViewById<LinearLayout>(R.id.number_start_game)
-        linearRed?.visibility = View.GONE
-
-        val linearGreen = view?.findViewById<LinearLayout>(R.id.gameplay_number)
-        linearGreen?.visibility = View.VISIBLE
+        linearStartGame.visibility = View.GONE
+        linearGamplay.visibility = View.VISIBLE
 
         number = ""
 
@@ -105,11 +114,8 @@ class NumberMemoryFragment : Fragment() {
         handleProgressBar()
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val linearRed = view?.findViewById<LinearLayout>(R.id.gameplay_number)
-            linearRed?.visibility = View.GONE
-
-            val linearGreen = view?.findViewById<LinearLayout>(R.id.gameplay_answer)
-            linearGreen?.visibility = View.VISIBLE
+            linearGamplay.visibility = View.GONE
+            linearAnswer.visibility = View.VISIBLE
 
             answer.requestFocus()
             view?.showKeyboard()
@@ -119,12 +125,8 @@ class NumberMemoryFragment : Fragment() {
     }
 
     private fun handleUserAnswer(){
-
-        val linearRed = view?.findViewById<LinearLayout>(R.id.gameplay_answer)
-        linearRed?.visibility = View.GONE
-
-        val linearGreen = view?.findViewById<LinearLayout>(R.id.gameplay_result_numbers)
-        linearGreen?.visibility = View.VISIBLE
+        linearAnswer.visibility = View.GONE
+        linearResult.visibility = View.VISIBLE
 
         view?.hideKeyboard()
 
@@ -132,15 +134,16 @@ class NumberMemoryFragment : Fragment() {
 
         textRightNumber.setText(number)
         textUserAnswer.setText(userAnswer)
+        textLevel.setText("Level " + number.length)
 
         if (userAnswer.equals(number)){
 
-            btnContinue.setText("Continue")
+            btnContinue.setText(R.string.cont)
             textUserAnswer.setTextColor(ContextCompat.getColor(context!!, R.color.white))
             btnSaveScore.visibility = View.GONE
 
         } else {
-            btnContinue.setText("Try Again")
+            btnContinue.setText(R.string.try_again)
             textUserAnswer.setTextColor(ContextCompat.getColor(context!!, R.color.light_red))
             digits = 1
             thinkingTime = 3000
@@ -148,6 +151,22 @@ class NumberMemoryFragment : Fragment() {
         }
 
         answer.setText("")
+
+    }
+
+    private fun handleSaveScore(){
+
+        val timestamp: String? = TimestampUtils.getCurrentTimestamp()
+
+        val score = Scores(
+            getString(R.string.number_memory_fragment),
+            number.length,
+            timestamp!!
+        )
+
+        viewModel.insert(score)
+
+        Toast.makeText(context, getString(R.string.score_saved), LENGTH_SHORT).show()
 
     }
 

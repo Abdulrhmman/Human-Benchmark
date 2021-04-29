@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
-        android:id="@+id/start_game"
+        android:id="@+id/linear_start_game"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -46,7 +46,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/gameplay_red"
+        android:id="@+id/linear_gameplay_red"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -69,7 +69,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/gameplay_green"
+        android:id="@+id/linear_gameplay_green"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -103,7 +103,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/gameplay_keep_going"
+        android:id="@+id/linear_gameplay_keep_going"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -143,7 +143,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/gameplay_too_soon"
+        android:id="@+id/linear_gameplay_too_soon"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -182,7 +182,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/gameplay_result_reaction"
+        android:id="@+id/linear_result"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -224,11 +224,10 @@
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_button"
             android:layout_marginTop="15dp"
-            android:text="Save Score"
+            android:text="@string/save_score"
             android:textColor="@color/colorPrimary"
             android:fontFamily="@font/cairo_regular"
-            android:textAllCaps="false"
-            android:visibility="gone"/>
+            android:textAllCaps="false"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_try_again"
@@ -236,7 +235,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_button"
             android:layout_marginTop="15dp"
-            android:text="Try Again"
+            android:text="@string/try_again"
             android:textColor="@color/colorPrimary"
             android:fontFamily="@font/cairo_regular"
             android:textAllCaps="false"/>
