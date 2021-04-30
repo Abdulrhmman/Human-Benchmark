@@ -28,7 +28,6 @@ class ScoresListAdapter(private val interaction: Interaction? = null) :
     }
     private val differ = AsyncListDiffer(this, DIFF_CALLBACK)
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
         return ScoresViewHolder(
@@ -108,7 +107,6 @@ class ScoresListAdapter(private val interaction: Interaction? = null) :
             }
 
             game.text = item.game
-
 
             val day: String = item.timestamp.substring(0, 2)
             var month: String = item.timestamp.substring(3, 5)

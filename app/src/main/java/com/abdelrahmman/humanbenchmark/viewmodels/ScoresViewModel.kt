@@ -25,20 +25,4 @@ class ScoresViewModel
         allScores = repository.scores
     }
 
-//    val allScores: LiveData<List<Scores>> = repository.scores()
-
-//    fun insert(scores: Scores) = viewModelScope.launch {
-//        repository.insert(scores)
-//    }
 }
-
-//class ScoresViewModelFactory(private val repository: ScoresRepository) : ViewModelProvider.Factory {
-//    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-//        if (modelClass.isAssignableFrom(ScoresViewModel::class.java)) {
-//            @Suppress("UNCHECKED_CAST")
-//            return ScoresViewModel(repository) as T
-//        }
-//        throw IllegalArgumentException("Unknown ViewModel class")
-//    }
-//
-//}

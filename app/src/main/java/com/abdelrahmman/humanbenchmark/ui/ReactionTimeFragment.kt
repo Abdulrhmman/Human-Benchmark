@@ -13,7 +13,6 @@ import com.abdelrahmman.humanbenchmark.R
 import com.abdelrahmman.humanbenchmark.data.Scores
 import com.abdelrahmman.humanbenchmark.util.TimestampUtils
 
-
 class ReactionTimeFragment : BaseMainFragment(), View.OnClickListener {
 
     var millisStart: Long = 0

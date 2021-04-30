@@ -17,7 +17,6 @@ import com.abdelrahmman.humanbenchmark.data.Scores
 import com.abdelrahmman.humanbenchmark.util.TimestampUtils
 import com.abdelrahmman.humanbenchmark.util.screenRectDp
 
-
 class AimTrainerFragment : BaseMainFragment() {
 
     var remaining: Int = 30

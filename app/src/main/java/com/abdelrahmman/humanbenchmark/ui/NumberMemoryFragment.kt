@@ -2,7 +2,6 @@ package com.abdelrahmman.humanbenchmark.ui
 
 import android.content.Context
 import android.content.pm.ActivityInfo
-import android.graphics.Color.parseColor
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -14,7 +13,6 @@ import android.widget.*
 import android.widget.Toast.LENGTH_SHORT
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import com.abdelrahmman.humanbenchmark.R
 import com.abdelrahmman.humanbenchmark.data.Scores
 import com.abdelrahmman.humanbenchmark.util.ProgressBarAnimation

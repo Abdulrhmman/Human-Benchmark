@@ -24,8 +24,6 @@ class MainFragment : BaseMainFragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
 
-//        viewModel.deleteAll()
-
         view.findViewById<LinearLayout>(R.id.reaction_time).setOnClickListener(this)
         view.findViewById<LinearLayout>(R.id.aim_trainer).setOnClickListener(this)
         view.findViewById<LinearLayout>(R.id.number_memory).setOnClickListener(this)

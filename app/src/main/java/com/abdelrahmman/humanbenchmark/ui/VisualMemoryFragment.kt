@@ -194,12 +194,6 @@ class VisualMemoryFragment : BaseMainFragment() {
                     )
                 }
 
-            } catch (e: Exception) {
-                print(e.message)
-            }
-            catch (i: java.lang.IllegalStateException){
-
-                println(i.message)
             }
             catch (e: NullPointerException){
                 println(e.message)

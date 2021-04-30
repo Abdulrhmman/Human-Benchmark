@@ -49,18 +49,6 @@ class ShowScoresFragment: BaseMainFragment() {
             addItemDecoration(topSpacingItemDecoration)
             recyclerAdapter = ScoresListAdapter()
 
-//            addOnScrollListener(object : RecyclerView.OnScrollListener(){
-//                override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-//                    super.onScrollStateChanged(recyclerView, newState)
-//                    val layoutManager = recyclerView.layoutManager as LinearLayoutManager
-//                    val lastPosition = layoutManager.findLastVisibleItemPosition()
-//                    if (lastPosition == recyclerAdapter.itemCount.minus(1)){
-//                        Log.d(TAG, "MainFragment: Attempting to load next page...")
-//                        viewModel.nextPage()
-//                    }
-//                }
-//            })
-
             adapter = recyclerAdapter
 
         }

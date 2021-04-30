@@ -15,7 +15,6 @@ abstract class BaseMainFragment: DaggerFragment() {
     @Inject
     lateinit var providerFactory: ViewModelProviderFactory
 
-
     lateinit var viewModel: ScoresViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

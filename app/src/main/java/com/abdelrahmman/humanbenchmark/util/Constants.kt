@@ -1,28 +1,10 @@
 package com.abdelrahmman.humanbenchmark.util
 
-import com.abdelrahmman.humanbenchmark.data.Scores
-
 class Constants {
 
     companion object {
 
-//        val testScores: List<Scores>
-//            get() = listOf<Scores>(scores1, scores2, scores3, scores4)
-//
-//        val scores1 = Scores(1, "chimp_test", 12, "timestamp")
-//        val scores2 = Scores(2, "reaction_time", 220, "timestamp")
-//        val scores3 = Scores(3, "visual_memory", 12, "timestamp")
-//        val scores4 = Scores(4, "aim_target", 320, "timestamp")
-//
-        val chimp = "chimp_test"
-
-//        const val REACTION_TIME_KEY = "REACTION_TIME"
-//        const val AIM_TRAINER_KEY = "AIM_TRAINER"
-//        const val NUMBER_MEMORY_KEY = "NUMBER_MEMORY"
-//        const val VERBAL_MEMORY_KEY = "VERBAL_MEMORY"
-//        const val CHIMP_TEST_KEY = "CHIMP_TEST"
-//        const val VISUAL_MEMORY_KEY = "VISUAL_MEMORY"
-
+        // all words (300)
         val VOCABULARY = arrayOf("abject", "aberration", "abjure", "abnegation", "abrogate", "abscond", "abstruse", "accede", "accost",
             "accretion", "acumen", "adamant", "admonish", "adumbrate", "adverse", "advocate", "affluent", "aggrandize", "alacrity", "alias",
             "ambivalent", "amenable", "amorphous", "anachronistic", "anathema", "annex", "antediluvian", "antiseptic", "apathetic", "antithesis",

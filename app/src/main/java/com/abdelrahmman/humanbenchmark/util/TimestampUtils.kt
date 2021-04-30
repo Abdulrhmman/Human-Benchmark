@@ -6,6 +6,7 @@ import java.util.*
 class TimestampUtils() {
 
     companion object {
+
         fun getCurrentTimestamp(): String? {
             return try {
                 val simpleDateFormat = SimpleDateFormat("dd-MM-yyyy")

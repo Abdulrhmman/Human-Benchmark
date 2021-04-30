@@ -20,7 +20,6 @@ import com.abdelrahmman.humanbenchmark.util.TimestampUtils
 
 class VerbalMemoryFragment : BaseMainFragment() {
 
-    // TODO: Save Score
     var lives = 3
     var score = 0
     var seen_words = mutableListOf<String>()
