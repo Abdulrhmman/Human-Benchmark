@@ -31,6 +31,7 @@ class VisualMemoryFragment : BaseMainFragment() {
     private var level: Int = 1
     private var lives: Int = 3
     private var selected = mutableListOf<Int>()
+    private var isGenerating: Boolean = false
 
     private lateinit var linearStartGame : LinearLayout
     private lateinit var linearGameplay : LinearLayout
@@ -103,8 +104,8 @@ class VisualMemoryFragment : BaseMainFragment() {
             for (i in 0 until blocks){
 
                 addGridView(
-                        gridLayout,
-                        i
+                    gridLayout,
+                    i
                 )
             }
 
@@ -117,8 +118,8 @@ class VisualMemoryFragment : BaseMainFragment() {
             for (i in 0 until blocks){
 
                 addGridView(
-                        gridLayout,
-                        i
+                    gridLayout,
+                    i
                 )
             }
 
@@ -131,8 +132,8 @@ class VisualMemoryFragment : BaseMainFragment() {
             for (i in 0 until blocks){
 
                 addGridView(
-                        gridLayout,
-                        i
+                    gridLayout,
+                    i
                 )
             }
 
@@ -145,8 +146,8 @@ class VisualMemoryFragment : BaseMainFragment() {
             for (i in 0 until blocks){
 
                 addGridView(
-                        gridLayout,
-                        i
+                    gridLayout,
+                    i
                 )
             }
 
@@ -159,8 +160,8 @@ class VisualMemoryFragment : BaseMainFragment() {
             for (i in 0 until blocks){
 
                 addGridView(
-                        gridLayout,
-                        i
+                    gridLayout,
+                    i
                 )
             }
 
@@ -173,8 +174,8 @@ class VisualMemoryFragment : BaseMainFragment() {
             for (i in 0 until blocks){
 
                 addGridView(
-                        gridLayout,
-                        i
+                    gridLayout,
+                    i
                 )
             }
 
@@ -248,12 +249,25 @@ class VisualMemoryFragment : BaseMainFragment() {
             gridLayout: GridLayout,
             position: Int
     ){
+        isGenerating = true
+
         Handler(Looper.getMainLooper()).postDelayed({
-            gridLayout.get(position).background = this.resources.getDrawable(R.drawable.rounded_white_block)
+
+            if (isAdded) {
+                gridLayout.get(position).background =
+                    this.resources.getDrawable(R.drawable.rounded_white_block)
+            }
+
         }, 500)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            gridLayout.get(position).background = this.resources.getDrawable(R.drawable.rounded_dark_block)
+
+            if (isAdded){
+
+                gridLayout.get(position).background = this.resources.getDrawable(R.drawable.rounded_dark_block)
+            }
+
+            isGenerating = false
         }, 1500)
 
     }
@@ -264,50 +278,52 @@ class VisualMemoryFragment : BaseMainFragment() {
     ) {
         block.setOnClickListener {
 
-            if (selected.contains(position)){
-                gridLayout.get(position).background = this.resources.getDrawable(R.drawable.rounded_white_block)
-                rightAttempts++
-            } else {
-                gridLayout.get(position).background = this.resources.getDrawable(R.drawable.rounded_black_block)
-                wrongAttempts++
-            }
+            if (!isGenerating){
 
-            block.isClickable = false
-            block.isFocusable = false
-
-            if (lives > 0){
-
-                if (rightAttempts == squares){
-                    level++
-                    squares++
-                    selected.clear()
-
-                    gridLayout.isEnabled = false
-
-                    Handler(Looper.getMainLooper()).postDelayed({
-                        handleGameplay()
-                    }, 500)
+                if (selected.contains(position)){
+                    gridLayout.get(position).background = this.resources.getDrawable(R.drawable.rounded_white_block)
+                    rightAttempts++
+                } else {
+                    gridLayout.get(position).background = this.resources.getDrawable(R.drawable.rounded_black_block)
+                    wrongAttempts++
                 }
 
-                if (wrongAttempts == 3){
-                    lives--
-                    selected.clear()
+                block.isClickable = false
+                block.isFocusable = false
 
-                    if (lives > 0){
+                if (lives > 0){
+
+                    if (rightAttempts == squares){
+                        level++
+                        squares++
+                        selected.clear()
+
+                        gridLayout.isEnabled = false
+
                         Handler(Looper.getMainLooper()).postDelayed({
                             handleGameplay()
                         }, 500)
+                    }
+
+                    if (wrongAttempts == 3){
+                        lives--
+                        selected.clear()
+
+                        if (lives > 0){
+                            Handler(Looper.getMainLooper()).postDelayed({
+                                handleGameplay()
+                            }, 500)
+
+                        }
 
                     }
 
                 }
 
+                if (lives == 0){
+                    handleGameEnd()
+                }
             }
-
-            if (lives == 0){
-                handleGameEnd()
-            }
-
         }
     }
 

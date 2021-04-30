@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Human Benchmark</string>
+    <string name="app_name">SharpenYourMind</string>
 
     <!-- reaction_time_fragment -->
     <string name="reaction_time_fragment">Reaction Time</string>
