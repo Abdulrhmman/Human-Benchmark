@@ -66,7 +66,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:gravity="center_horizontal"
             android:layout_marginTop="15dp"
-            android:text="Remaining"
+            android:text="@string/remaining"
             android:textSize="28sp"
             android:fontFamily="@font/cairo_regular"/>
 
@@ -115,7 +115,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Time to hit 30 targets:"
+            android:text="@string/aim_time_to_hit"
             android:fontFamily="@font/cairo_regular"
             android:textColor="@color/light_grey"
             android:textSize="24sp"/>
@@ -131,7 +131,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Average time per target:"
+            android:text="@string/aim_avg"
             android:fontFamily="@font/cairo_regular"
             android:textColor="@color/light_grey"
             android:textSize="24sp"/>

@@ -8,13 +8,17 @@ import javax.inject.Inject
 
 class ScoresViewModel
 @Inject constructor(
-    private val repository: ScoresRepository
+    private val repository: ScoresRepository,
 ): ViewModel() {
 
     val allScores: LiveData<List<Scores>>
 
     fun insert(scores: Scores) = viewModelScope.launch {
         repository.insert(scores)
+    }
+
+    fun delete(scores: Scores) = viewModelScope.launch {
+        repository.delete(scores)
     }
 
     fun deleteAll() = viewModelScope.launch {

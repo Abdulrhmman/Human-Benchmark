@@ -60,7 +60,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Reaction Time"
+                android:text="@string/reaction_time_fragment"
                 android:fontFamily="@font/cairo_bold"
                 android:textColor="@color/colorPrimary"
                 android:textSize="24sp"
@@ -87,7 +87,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Aim Trainer"
+                android:text="@string/aim_trainer_fragment"
                 android:fontFamily="@font/cairo_bold"
                 android:textColor="@color/colorPrimary"
                 android:textSize="24sp"
@@ -114,7 +114,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Number Memory"
+                android:text="@string/number_memory_fragment"
                 android:fontFamily="@font/cairo_bold"
                 android:textColor="@color/colorPrimary"
                 android:textSize="24sp"
@@ -141,7 +141,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Verbal Memory"
+                android:text="@string/verbal_memory_fragment"
                 android:fontFamily="@font/cairo_bold"
                 android:textColor="@color/colorPrimary"
                 android:textSize="24sp"
@@ -168,7 +168,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Chimp Test"
+                android:text="@string/chimp_test_fragment"
                 android:fontFamily="@font/cairo_bold"
                 android:textColor="@color/colorPrimary"
                 android:textSize="24sp"
@@ -195,7 +195,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Visual Memory"
+                android:text="@string/visual_memory_fragment"
                 android:fontFamily="@font/cairo_bold"
                 android:textColor="@color/colorPrimary"
                 android:textSize="24sp"
@@ -216,7 +216,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Show Your Scores"
+                android:text="@string/show_your_scores_fragment"
                 android:fontFamily="@font/cairo_bold"
                 android:textColor="@color/colorPrimary"
                 android:textSize="20sp"

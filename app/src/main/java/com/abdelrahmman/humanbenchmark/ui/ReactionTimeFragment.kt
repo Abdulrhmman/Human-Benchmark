@@ -8,7 +8,6 @@ import android.widget.TextView
 import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
 import androidx.appcompat.widget.AppCompatButton
-import androidx.fragment.app.Fragment
 import com.abdelrahmman.humanbenchmark.R
 import com.abdelrahmman.humanbenchmark.data.Scores
 import com.abdelrahmman.humanbenchmark.util.TimestampUtils

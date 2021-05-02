@@ -15,6 +15,10 @@ constructor(
         scoresDao.insert(scores)
     }
 
+    suspend fun delete(scores: Scores){
+        scoresDao.delete(scores)
+    }
+
     suspend fun deleteAll(){
         scoresDao.deleteAll()
     }

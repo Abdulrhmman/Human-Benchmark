@@ -106,7 +106,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="What was the number?"
+            android:text="@string/number_what_was_the_number"
             android:fontFamily="@font/cairo_bold"
             android:textColor="@color/white"
             android:textSize="28sp"/>
@@ -154,7 +154,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Number"
+            android:text="@string/number"
             android:fontFamily="@font/cairo_regular"
             android:textColor="@color/light_grey"
             android:textSize="28sp"/>
@@ -170,7 +170,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Your Answer"
+            android:text="@string/your_answer"
             android:fontFamily="@font/cairo_regular"
             android:textColor="@color/light_grey"
             android:textSize="28sp"/>

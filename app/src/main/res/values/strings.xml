@@ -5,16 +5,27 @@
     <string name="reaction_time_fragment">Reaction Time</string>
     <string name="reaction_header">Reaction Time Test</string>
     <string name="reaction_game_description">When the red color turns green, tap as quickly as you can.<br/><strong>Tap anywhere to start.</strong></string>
+    <string name="wait_for_green">Wait For Green</string>
+    <string name="tap">Tap!</string>
+    <string name="tap_to_keep_going">Tap To Keep Going</string>
+    <string name="too_soon">Too Soon!</string>
+    <string name="finished">Finished!</string>
 
-    <!-- numbers_fragment -->
+    <!-- number_memory_fragment -->
     <string name="number_memory_fragment">Number Memory</string>
     <string name="number_header">Number Memory</string>
     <string name="numbers_game_description">The average person can remember 7 numbers at once. Can you do more?</string>
+    <string name="number_what_was_the_number">What was the number?</string>
+    <string name="number">Number</string>
+    <string name="your_answer">Your Answer</string>
 
     <!-- chimp_fragment -->
     <string name="chimp_test_fragment">Chimp Test</string>
     <string name="chimp_header">Are You Smarter Than A Chimpanzee?</string>
     <string name="chimp_game_description">Tap the squares in order according to their numbers.<br/>The test will get progressively harder.</string>
+    <string name="numbers">Numbers</string>
+    <string name="strikes">Strikes</string>
+    <string name="score">Score</string>
 
     <!-- verbal_memory_fragment -->
     <string name="verbal_memory_fragment">Verbal Memory</string>
@@ -25,11 +36,18 @@
     <string name="aim_trainer_fragment">Aim Trainer</string>
     <string name="aim_trainer_header">Aim Trainer</string>
     <string name="aim_trainer_game_description">Hit 30 targets as quickly as you can.<br/>Click the target above to begin.</string>
+    <string name="remaining">Remaining</string>
+    <string name="aim_time_to_hit">Time to hit 30 targets&#58;</string>
+    <string name="aim_avg">Average time per target:</string>
 
     <!-- visual_memory_fragment -->
     <string name="visual_memory_fragment">Visual Memory</string>
     <string name="visual_memory_header">Visual Memory Test</string>
     <string name="visual_memory_game_description">Memorize the squares.</string>
+    <string name="game_over">Game Over</string>
+
+    <!-- show_your_scores_fragment -->
+    <string name="show_your_scores_fragment">Show Your Scores</string>
 
     <!-- buttons -->
     <string name="start">Start</string>
@@ -39,8 +57,15 @@
     <string name="submit">Submit</string>
     <string name="seen">SEEN</string>
     <string name="btn_new">NEW</string>
-    
+    <string name="delete_all_scores">Delete All Scores</string>
+
     <!-- Others -->
     <string name="score_saved">Score Saved</string>
-    
+    <string name="are_you_sure">Are You Sure?</string>
+    <string name="text_yes">Yes</string>
+    <string name="text_cancel">Cancel</string>
+    <string name="delete_all_message">Are you sure you want to delete all your scores?<br/> This action can not be undo</string>
+    <string name="score_deleted">Score Deleted</string>
+    <string name="undo">Undo</string>
+
 </resources>

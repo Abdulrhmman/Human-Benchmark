@@ -5,17 +5,12 @@ import android.os.Bundle
 import android.view.*
 import android.widget.*
 import android.widget.Toast.LENGTH_SHORT
-import androidx.activity.viewModels
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import com.abdelrahmman.humanbenchmark.R
 import com.abdelrahmman.humanbenchmark.data.Scores
 import com.abdelrahmman.humanbenchmark.util.TimestampUtils
-import com.abdelrahmman.humanbenchmark.viewmodels.ScoresViewModel
 import java.lang.NullPointerException
 
 class ChimpTestFragment : BaseMainFragment() {
@@ -27,7 +22,6 @@ class ChimpTestFragment : BaseMainFragment() {
     var rightAnswer: String = ""
     var map = mutableMapOf<Int, Int>()
     var strikes: Int = 0
-
 
     private lateinit var linearStartGame : LinearLayout
     private lateinit var linearGameplay : LinearLayout

@@ -91,7 +91,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Numbers"
+            android:text="@string/numbers"
             android:fontFamily="@font/cairo_regular"
             android:textColor="@color/light_grey"
             android:textSize="28sp"/>
@@ -107,7 +107,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Strikes"
+            android:text="@string/strikes"
             android:fontFamily="@font/cairo_regular"
             android:textColor="@color/light_grey"
             android:textSize="28sp"/>
@@ -149,7 +149,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Score"
+            android:text="@string/score"
             android:fontFamily="@font/cairo_regular"
             android:textColor="@color/light_grey"
             android:textSize="28sp"/>

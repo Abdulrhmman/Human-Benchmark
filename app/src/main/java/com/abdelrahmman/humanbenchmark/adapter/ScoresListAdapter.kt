@@ -53,6 +53,10 @@ class ScoresListAdapter(private val interaction: Interaction? = null) :
         return differ.currentList.size
     }
 
+    fun getScoreAt(position: Int): Scores {
+        return differ.currentList.get(position)
+    }
+
     fun submitList(list: List<Scores>) {
         differ.submitList(list)
     }
@@ -70,7 +74,7 @@ class ScoresListAdapter(private val interaction: Interaction? = null) :
 
         fun bind(item: Scores) = with(itemView) {
             itemView.setOnClickListener {
-                interaction?.onItemSelected(adapterPosition, item)
+                interaction?.onItemSelected(bindingAdapterPosition, item)
             }
 
             img = itemView.findViewById(R.id.img_game)
