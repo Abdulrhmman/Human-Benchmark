@@ -5,8 +5,6 @@
 
 <ul>
   <li>Reaction Time</li>
-  ![reaction](https://user-images.githubusercontent.com/41817466/117183530-f1215700-add7-11eb-927c-80a31b13660e.jpg)
-
   <li>Aim Trainer</li>
   <li>Number Memory</li>
   <li>Verbal Memory</li>
