@@ -9,7 +9,7 @@ class TimestampUtils() {
 
         fun getCurrentTimestamp(): String? {
             return try {
-                val simpleDateFormat = SimpleDateFormat("dd-MM-yyyy")
+                val simpleDateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH)
                 simpleDateFormat.format(Date())
             } catch (e: Exception) {
                 null

@@ -16,6 +16,7 @@ import com.abdelrahmman.humanbenchmark.R
 import com.abdelrahmman.humanbenchmark.data.Scores
 import com.abdelrahmman.humanbenchmark.util.TimestampUtils
 import com.abdelrahmman.humanbenchmark.util.screenRectDp
+import java.util.*
 
 class AimTrainerFragment : BaseMainFragment() {
 
@@ -121,7 +122,8 @@ class AimTrainerFragment : BaseMainFragment() {
         linearEndResult.visibility = View.VISIBLE
 
         val millisConvert = millisAll.toDouble()
-        val totalTime: Double = String.format("%.2f", (millisConvert / 1000)).toDouble()
+
+        val totalTime = String.format(Locale.ENGLISH, "%.2f", (millisConvert / 1000)).toDouble()
 
         textTotalTime.setText("$totalTime s")
         textAverageTime.setText("$millisAverage ms")
@@ -158,6 +160,7 @@ class AimTrainerFragment : BaseMainFragment() {
         val startMarginLimit: Int = widthDp.toInt() - 100
         val topMarginLimit: Int = heightDp.toInt() - 340
 
+
         val startMarginRandom = (0 until startMarginLimit).random()
         val topMarginRandom = (0 until topMarginLimit).random()
 
@@ -172,7 +175,6 @@ class AimTrainerFragment : BaseMainFragment() {
             topMarginRandom.toFloat(),
             resources.displayMetrics
         ).toInt()
-
 
         val linearLayoutParams = target.getLayoutParams() as LinearLayout.LayoutParams
         linearLayoutParams.setMargins(startMarginInDp, topMarginInDp, 0, 0)
