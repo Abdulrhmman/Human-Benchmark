@@ -1,6 +1,6 @@
 # Human-Benchmark
 
-Check it out on <a href="https://play.google.com/store/apps/details?id=com.abdelrahmman.humanbenchmark">Google Play</a>:
+Check it out on <a href="https://play.google.com/store/apps/details?id=com.abdelrahmman.humanbenchmark">Google Play</a>
 
 <p>Human Benchmark android application is a simple game where you can measure your intelligence with fun games.</p>
 
