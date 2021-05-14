@@ -32,6 +32,7 @@ class NumberMemoryFragment : BaseMainFragment() {
     lateinit var textNumber: TextView
     lateinit var btnStart: AppCompatButton
     lateinit var btnSubmit: AppCompatButton
+    lateinit var backImg : ImageView
     lateinit var progressbar: ProgressBar
     lateinit var answer: EditText
     lateinit var textRightNumber: TextView
@@ -60,6 +61,7 @@ class NumberMemoryFragment : BaseMainFragment() {
         textNumber = view.findViewById(R.id.text_number)
         btnStart = view.findViewById(R.id.btn_start)
         btnSubmit = view.findViewById(R.id.btn_submit)
+        backImg = view.findViewById(R.id.back_btn)
         answer = view.findViewById(R.id.user_answer)
         textRightNumber = view.findViewById(R.id.text_right_number)
         textUserAnswer = view.findViewById(R.id.text_user_answer)
@@ -89,6 +91,10 @@ class NumberMemoryFragment : BaseMainFragment() {
             handleSaveScore()
 
             btnSaveScore.isEnabled = false
+        }
+
+        backImg.setOnClickListener {
+            navController.navigate(R.id.action_numberMemoryFragment_to_mainFragment)
         }
 
     }

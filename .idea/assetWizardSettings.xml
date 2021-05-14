@@ -28,8 +28,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="808080" />
-                            <entry key="outputName" value="ic_baseline_arrow_back_24" />
+                            <entry key="color" value="ffffff" />
+                            <entry key="outputName" value="ic_baseline_arrow_back_white_24" />
                             <entry key="sourceFile" value="F:\Programming\AndroidProjects\HumanBenchmark" />
                           </map>
                         </option>

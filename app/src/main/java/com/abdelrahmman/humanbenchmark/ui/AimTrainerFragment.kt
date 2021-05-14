@@ -1,6 +1,7 @@
 package com.abdelrahmman.humanbenchmark.ui
 
 import android.content.pm.ActivityInfo
+import android.media.Image
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -36,6 +37,7 @@ class AimTrainerFragment : BaseMainFragment() {
     private lateinit var imgStart : ImageView
     private lateinit var target: ImageView
     private lateinit var btnSaveScore : AppCompatButton
+    private lateinit var backImg : ImageView
     private lateinit var textRemaining : TextView
     private lateinit var textTotalTime : TextView
     private lateinit var textAverageTime : TextView
@@ -61,6 +63,7 @@ class AimTrainerFragment : BaseMainFragment() {
         imgStart = view.findViewById(R.id.img_target_start_game)
         target = view.findViewById(R.id.img_target)
         btnSaveScore = view.findViewById(R.id.btn_save_score)
+        backImg = view.findViewById(R.id.back_btn)
         textRemaining = view.findViewById(R.id.text_remaining)
         textTotalTime = view.findViewById(R.id.text_time_aim)
         textAverageTime = view.findViewById(R.id.text_average_aim)
@@ -94,6 +97,10 @@ class AimTrainerFragment : BaseMainFragment() {
         btnSaveScore.setOnClickListener {
             handleSaveScore()
             btnSaveScore.isEnabled = false
+        }
+
+        backImg.setOnClickListener {
+            navController.navigate(R.id.action_aimTrainerFragment_to_mainFragment)
         }
 
     }

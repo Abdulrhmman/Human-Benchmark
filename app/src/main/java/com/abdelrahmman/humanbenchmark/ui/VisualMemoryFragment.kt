@@ -8,10 +8,7 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.GridLayout
-import android.widget.LinearLayout
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import android.widget.Toast.LENGTH_SHORT
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.get
@@ -45,6 +42,7 @@ class VisualMemoryFragment : BaseMainFragment() {
     private lateinit var textScore: TextView
     private lateinit var btnSaveScore : AppCompatButton
     private lateinit var btnTryAgain : AppCompatButton
+    private lateinit var backImg : ImageView
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -70,6 +68,7 @@ class VisualMemoryFragment : BaseMainFragment() {
         textScore = view.findViewById(R.id.text_score)
         btnSaveScore = view.findViewById(R.id.btn_save_score)
         btnTryAgain = view.findViewById(R.id.btn_try_again)
+        backImg = view.findViewById(R.id.back_btn)
 
         btnStart.setOnClickListener {
             handleGameplay()
@@ -78,6 +77,10 @@ class VisualMemoryFragment : BaseMainFragment() {
         btnSaveScore.setOnClickListener {
             handleSaveScore()
             btnSaveScore.isEnabled = false
+        }
+
+        backImg.setOnClickListener {
+            navController.navigate(R.id.action_visualMemoryFragment_to_mainFragment)
         }
 
     }

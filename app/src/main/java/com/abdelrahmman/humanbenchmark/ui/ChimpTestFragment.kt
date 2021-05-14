@@ -30,6 +30,7 @@ class ChimpTestFragment : BaseMainFragment() {
 
     private lateinit var gridLayout: GridLayout
     private lateinit var btnStart : AppCompatButton
+    private lateinit var backImg : ImageView
     private lateinit var textCurrentLevel : TextView
     private lateinit var textStrikes : TextView
     private lateinit var textScore : TextView
@@ -59,6 +60,7 @@ class ChimpTestFragment : BaseMainFragment() {
         textCurrentLevel = view.findViewById(R.id.text_current_level)
         textStrikes = view.findViewById(R.id.text_strikes)
         textScore = view.findViewById(R.id.text_score)
+        backImg = view.findViewById(R.id.back_btn)
         btnContinue = view.findViewById(R.id.btn_continue)
         btnTryAgain = view.findViewById(R.id.btn_try_again)
         btnSaveScore = view.findViewById(R.id.btn_save_score)
@@ -84,6 +86,10 @@ class ChimpTestFragment : BaseMainFragment() {
             handleGameplay()
 
             btnSaveScore.isEnabled = true
+        }
+
+        backImg.setOnClickListener {
+            navController.navigate(R.id.action_chimpTestFragment_to_mainFragment)
         }
 
     }

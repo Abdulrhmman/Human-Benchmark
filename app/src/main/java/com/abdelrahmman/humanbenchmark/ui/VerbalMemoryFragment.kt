@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -34,6 +35,7 @@ class VerbalMemoryFragment : BaseMainFragment() {
     private lateinit var textWord : TextView
     private lateinit var textResult : TextView
     private lateinit var btnTryAgain : AppCompatButton
+    private lateinit var backImg : ImageView
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -61,6 +63,7 @@ class VerbalMemoryFragment : BaseMainFragment() {
         btnNew = view.findViewById(R.id.btn_new)
         btnSaveScore = view.findViewById(R.id.btn_save_score)
         btnTryAgain = view.findViewById(R.id.btn_try_again)
+        backImg = view.findViewById(R.id.back_btn)
 
         btnStart.setOnClickListener {
             handleGameplay()
@@ -74,6 +77,10 @@ class VerbalMemoryFragment : BaseMainFragment() {
         btnSaveScore.setOnClickListener {
             handleSaveScore()
             btnSaveScore.isEnabled = false
+        }
+
+        backImg.setOnClickListener {
+            navController.navigate(R.id.action_verbalMemoryFragment_to_mainFragment)
         }
     }
 

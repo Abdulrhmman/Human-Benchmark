@@ -11,7 +11,6 @@ import com.abdelrahmman.humanbenchmark.R
 
 class MainFragment : BaseMainFragment(), View.OnClickListener {
 
-    lateinit var navController: NavController
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -22,7 +21,6 @@ class MainFragment : BaseMainFragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        navController = Navigation.findNavController(view)
 
         view.findViewById<LinearLayout>(R.id.reaction_time).setOnClickListener(this)
         view.findViewById<LinearLayout>(R.id.aim_trainer).setOnClickListener(this)

@@ -3,6 +3,7 @@ package com.abdelrahmman.humanbenchmark.ui
 import android.content.pm.ActivityInfo
 import android.os.*
 import android.view.*
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -36,6 +37,7 @@ class ReactionTimeFragment : BaseMainFragment(), View.OnClickListener {
     lateinit var textMillisAverage: TextView
     lateinit var btnSaveScore: AppCompatButton
     lateinit var btnTryAgain: AppCompatButton
+    lateinit var backImg : ImageView
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -74,6 +76,7 @@ class ReactionTimeFragment : BaseMainFragment(), View.OnClickListener {
         textMillisAverage = view.findViewById(R.id.finished_result_average)
         btnSaveScore = view.findViewById(R.id.btn_save_score)
         btnTryAgain = view.findViewById(R.id.btn_try_again)
+        backImg = view.findViewById(R.id.back_btn)
 
         view.findViewById<LinearLayout>(R.id.linear_start_game).setOnClickListener(this)
         view.findViewById<LinearLayout>(R.id.linear_gameplay_red).setOnClickListener(this)
@@ -90,6 +93,10 @@ class ReactionTimeFragment : BaseMainFragment(), View.OnClickListener {
         btnSaveScore.setOnClickListener {
             handleSaveScore()
             btnSaveScore.isEnabled = false
+        }
+
+        backImg.setOnClickListener {
+            navController.navigate(R.id.action_reactionTimeFragment_to_mainFragment)
         }
 
     }

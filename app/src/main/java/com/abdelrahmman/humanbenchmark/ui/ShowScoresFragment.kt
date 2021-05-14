@@ -7,6 +7,7 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,6 +23,8 @@ class ShowScoresFragment: BaseMainFragment() {
     private lateinit var recyclerAdapter: ScoresListAdapter
     private lateinit var recyclerview: RecyclerView
     private lateinit var btnDeleteAll: AppCompatButton
+    private lateinit var backImg : ImageView
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,6 +38,7 @@ class ShowScoresFragment: BaseMainFragment() {
 
         recyclerview = view.findViewById(R.id.recyclerview)
         btnDeleteAll = view.findViewById(R.id.btn_delete_all)
+        backImg = view.findViewById(R.id.back_btn)
 
         subscribeObservers()
         initRecyclerView()
@@ -42,6 +46,10 @@ class ShowScoresFragment: BaseMainFragment() {
 
         btnDeleteAll.setOnClickListener {
             handleBtnDeleteAll()
+        }
+
+        backImg.setOnClickListener {
+            navController.navigate(R.id.action_showScoresFragment_to_mainFragment)
         }
 
     }

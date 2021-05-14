@@ -75,10 +75,12 @@
         <action
             android:id="@+id/action_reactionTimeFragment_to_mainFragment"
             app:destination="@id/mainFragment"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/fade_out" />
+            app:popUpToInclusive="true"
+            app:popUpTo="@+id/main_nav"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"/>
 
     </fragment>
 
@@ -90,10 +92,12 @@
         <action
             android:id="@+id/action_aimTrainerFragment_to_mainFragment"
             app:destination="@id/mainFragment"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/fade_out"/>
+            app:popUpToInclusive="true"
+            app:popUpTo="@+id/main_nav"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"/>
 
     </fragment>
 
@@ -105,10 +109,12 @@
         <action
             android:id="@+id/action_chimpTestFragment_to_mainFragment"
             app:destination="@id/mainFragment"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/fade_out" />
+            app:popUpToInclusive="true"
+            app:popUpTo="@+id/main_nav"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
 
     </fragment>
 
@@ -120,10 +126,12 @@
         <action
             android:id="@+id/action_numberMemoryFragment_to_mainFragment"
             app:destination="@id/mainFragment"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/fade_out" />
+            app:popUpToInclusive="true"
+            app:popUpTo="@+id/main_nav"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
 
     </fragment>
 
@@ -135,10 +143,12 @@
         <action
             android:id="@+id/action_verbalMemoryFragment_to_mainFragment"
             app:destination="@id/mainFragment"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/fade_out" />
+            app:popUpToInclusive="true"
+            app:popUpTo="@+id/main_nav"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
 
     </fragment>
 
@@ -150,10 +160,12 @@
         <action
             android:id="@+id/action_visualMemoryFragment_to_mainFragment"
             app:destination="@id/mainFragment"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/fade_out" />
+            app:popUpToInclusive="true"
+            app:popUpTo="@+id/main_nav"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
 
     </fragment>
 
@@ -165,10 +177,12 @@
         <action
             android:id="@+id/action_showScoresFragment_to_mainFragment"
             app:destination="@id/mainFragment"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/fade_out"/>
+            app:popUpToInclusive="true"
+            app:popUpTo="@+id/main_nav"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"/>
 
     </fragment>
 
