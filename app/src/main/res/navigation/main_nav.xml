@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.abdelrahmman.humanbenchmark.ui.MainFragment"
+        android:name="com.abdelrhmanhsh.sharpenyourmind.ui.MainFragment"
         android:label="MainFragment" >
 
         <action
@@ -69,7 +69,7 @@
 
     <fragment
         android:id="@+id/reactionTimeFragment"
-        android:name="com.abdelrahmman.humanbenchmark.ui.ReactionTimeFragment"
+        android:name="com.abdelrhmanhsh.sharpenyourmind.ui.ReactionTimeFragment"
         android:label="ReactionTimeFragment" >
 
         <action
@@ -86,7 +86,7 @@
 
     <fragment
         android:id="@+id/aimTrainerFragment"
-        android:name="com.abdelrahmman.humanbenchmark.ui.AimTrainerFragment"
+        android:name="com.abdelrhmanhsh.sharpenyourmind.ui.AimTrainerFragment"
         android:label="AimTrainerFragment" >
 
         <action
@@ -103,7 +103,7 @@
 
     <fragment
         android:id="@+id/chimpTestFragment"
-        android:name="com.abdelrahmman.humanbenchmark.ui.ChimpTestFragment"
+        android:name="com.abdelrhmanhsh.sharpenyourmind.ui.ChimpTestFragment"
         android:label="ChimpTestFragment" >
 
         <action
@@ -120,7 +120,7 @@
 
     <fragment
         android:id="@+id/numberMemoryFragment"
-        android:name="com.abdelrahmman.humanbenchmark.ui.NumberMemoryFragment"
+        android:name="com.abdelrhmanhsh.sharpenyourmind.ui.NumberMemoryFragment"
         android:label="NumberMemoryFragment" >
 
         <action
@@ -137,7 +137,7 @@
 
     <fragment
         android:id="@+id/verbalMemoryFragment"
-        android:name="com.abdelrahmman.humanbenchmark.ui.VerbalMemoryFragment"
+        android:name="com.abdelrhmanhsh.sharpenyourmind.ui.VerbalMemoryFragment"
         android:label="VerbalMemoryFragment" >
 
         <action
@@ -154,7 +154,7 @@
 
     <fragment
         android:id="@+id/visualMemoryFragment"
-        android:name="com.abdelrahmman.humanbenchmark.ui.VisualMemoryFragment"
+        android:name="com.abdelrhmanhsh.sharpenyourmind.ui.VisualMemoryFragment"
         android:label="VisualMemoryFragment" >
 
         <action
@@ -171,7 +171,7 @@
 
     <fragment
         android:id="@+id/showScoresFragment"
-        android:name="com.abdelrahmman.humanbenchmark.ui.ShowScoresFragment"
+        android:name="com.abdelrhmanhsh.sharpenyourmind.ui.ShowScoresFragment"
         android:label="ShowScoresFragment" >
 
         <action
